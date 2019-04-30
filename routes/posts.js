@@ -16,7 +16,7 @@ router.get('/post/:id', function (req, res, next) {
 })
 router.post('/', function (req, res, next) {
   posts.create(req.body).then(result => {
-    res.json(result)
+    res.json(result, { success: true, message: 'Post has been successfully created.' })
     console.log(result)
     next()
   })
