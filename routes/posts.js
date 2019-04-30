@@ -28,7 +28,7 @@ router.put('/update/:id', function (req, res, next) {
     postedBy: req.params.postedBy
   }
   posts.update(data, { where: { id: req.params.id } }).then(result => {
-    res.json(result)
+    res.json(result, { success: true, message: ' Post updated successfully.' })
     res.status(200)
     next()
   })
@@ -41,8 +41,8 @@ router.delete('/delete/:id', function (req, res, next) {
   console.log(id)
   posts.destroy({ where: { id: id } }).then(result => {
     res.status(200)
-    res.json(result)
-    
+    res.json(result, { success: true, message: 'Deleted Successfully' })
+
   })
 })
 
